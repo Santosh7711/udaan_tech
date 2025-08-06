@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Trophy, CheckCircle, Brain, Code, Cloud, MessageCircle, Play, Award, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageConfigs, generateBreadcrumbs } from '../utils/seoConfig';
 
 const HomePage = () => {
   const courses = [
@@ -77,6 +79,13 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title={pageConfigs.home.title}
+        description={pageConfigs.home.description}
+        keywords={pageConfigs.home.keywords}
+        breadcrumbs={generateBreadcrumbs('/')}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

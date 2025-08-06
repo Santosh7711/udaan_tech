@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Users, Star, Filter, Grid, List, Brain, Code, Cloud, Database, Shield, Smartphone } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageConfigs, generateBreadcrumbs } from '../utils/seoConfig';
 
 const CoursesPage = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -195,6 +197,13 @@ const CoursesPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <SEO 
+        title={pageConfigs.courses.title}
+        description={pageConfigs.courses.description}
+        keywords={pageConfigs.courses.keywords}
+        breadcrumbs={generateBreadcrumbs('/courses')}
+      />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
