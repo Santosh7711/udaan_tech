@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Clock, Users, Star, CheckCircle, Download, Calendar, User, Building, Award, ArrowRight, Play, Code } from 'lucide-react';
+import SEO from '../components/SEO';
+import { coursesSEO, generateBreadcrumbs } from '../utils/seoConfig';
 
 const CourseDetailPage = () => {
   const { slug } = useParams();
@@ -97,8 +99,22 @@ const CourseDetailPage = () => {
     }
   ];
 
+  // Get SEO data for this course
+  const courseSEO = coursesSEO[slug as keyof typeof coursesSEO];
+  const breadcrumbs = generateBreadcrumbs(`/courses/${slug}`);
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {courseSEO && (
+        <SEO 
+          title={courseSEO.title}
+          description={courseSEO.description}
+          keywords={courseSEO.keywords}
+          course={courseSEO.course}
+          breadcrumbs={breadcrumbs}
+        />
+      )}
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

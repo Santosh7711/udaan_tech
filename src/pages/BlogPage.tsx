@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, User, Clock, ArrowRight, Search, Filter, Eye, ThumbsUp } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageConfigs, generateBreadcrumbs } from '../utils/seoConfig';
 
 const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -116,6 +118,13 @@ const BlogPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={pageConfigs.blog.title}
+        description={pageConfigs.blog.description}
+        keywords={pageConfigs.blog.keywords}
+        breadcrumbs={generateBreadcrumbs('/blog')}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

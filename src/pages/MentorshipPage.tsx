@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, CheckCircle, Star, Calendar, MessageCircle, Video, Award, Target, ArrowRight, Clock, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageConfigs, generateBreadcrumbs } from '../utils/seoConfig';
 
 const MentorshipPage = () => {
   const mentors = [
@@ -160,6 +162,13 @@ const MentorshipPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={pageConfigs.mentorship.title}
+        description={pageConfigs.mentorship.description}
+        keywords={pageConfigs.mentorship.keywords}
+        breadcrumbs={generateBreadcrumbs('/mentorship')}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Award, Users, CheckCircle, ArrowRight, Brain, Code, Cloud, Target, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageConfigs, generateBreadcrumbs } from '../utils/seoConfig';
 
 const CareerTracksPage = () => {
   const tracks = [
@@ -159,6 +161,13 @@ const CareerTracksPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={pageConfigs['career-tracks'].title}
+        description={pageConfigs['career-tracks'].description}
+        keywords={pageConfigs['career-tracks'].keywords}
+        breadcrumbs={generateBreadcrumbs('/career-tracks')}
+      />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
